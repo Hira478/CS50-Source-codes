@@ -9,20 +9,25 @@ int main(void)
     {
         n = get_int("Height: ");
     }
-    while(n < 1 || n > 8);
+    while (n < 1 || n > 8);
 
-    //for loops hash and print out the block / hash
+    //for loops hash and promp the hash / block
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
+            //third step to wether print empty space or hash '#'
             if (j + i < n - 1)
             {
                 printf(" ");
-            } else {
+            }
+            else
+            {
                 printf("#");
             }
         }
-    printf("\n");
+        printf("\n");
     }
 }
+//the first loop is for each line only and depends on the 'n' input
+//the second loop is looping trough each line according to the conditions

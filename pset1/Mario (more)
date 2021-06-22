@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <cs50.h>
+
+void make(char c, int n);
+
+int main(void)
+{
+    //TODO prompt number 1-8 from user for the desire height
+    int n;
+    do
+    {
+        n = get_int("Height: ");
+    }
+    while (n < 1 || n > 8);
+
+    // TODO: both stair calculations
+    for (int i = 0; i < n; i++)
+    {
+        make(' ', n - 1 - i);
+        make('#', i + 1);
+        make(' ', 2);
+        make('#', i + 1);
+
+        // create new line each row
+        printf("\n");
+    }
+}
+
+//custom function to display the stairs
+void make(char c, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("%c", c);
+    }
+}

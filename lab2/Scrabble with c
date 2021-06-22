@@ -55,3 +55,5 @@ int compute_score(string word)
 
     return score;
 }
+
+//using ascii chart for the char indexing and convert it to the POINTS array to get score for each char

@@ -6,6 +6,7 @@
 #include <string.h>
 
 bool is_string(string s);
+
 //custom main command-line arguments
 int main(int argc, string argv[])
 {
@@ -13,7 +14,7 @@ int main(int argc, string argv[])
     if (argc != 2 || !is_string(argv[1]))
     {
         printf("Usage: ./caesar key\n");
-        //sign of error
+        //return int 1 if not work as intended
         return 1;
     }
     int k = atoi(argv[1]);
@@ -31,6 +32,7 @@ int main(int argc, string argv[])
         if (isalpha(c))
         {
             //convert char to lowercase
+            //and encrypt text formula ci = (pi + k) % 26
             char lw = tolower(c);
             int pi = lw - 'a';
             char ci = ((pi + k) % 26) + 'a';
@@ -46,6 +48,7 @@ int main(int argc, string argv[])
 
     //print out the encrypttext
     printf("ciphertext: %s\n", cptext);
+    //return int 0 if work as intended
     return 0;
 }
 

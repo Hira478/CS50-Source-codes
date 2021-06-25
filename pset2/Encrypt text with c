@@ -1,0 +1,63 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+bool is_string(string s);
+//custom main command-line arguments
+int main(int argc, string argv[])
+{
+    //[if function] to check if the arguments meets the conditions
+    if (argc != 2 || !is_string(argv[1]))
+    {
+        printf("Usage: ./caesar key\n");
+        //sign of error
+        return 1;
+    }
+    int k = atoi(argv[1]);
+    string p = get_string("plaintext: ");
+
+    //the ciphertext array + '\0'
+    int arr = strlen(p);
+    char cptext[arr + 1];
+
+    //shift_text(p, k, cptext);
+    int i = 0;
+    for (i = 0; i < strlen(p); i++)
+    {
+        char c = p[i];
+        if (isalpha(c))
+        {
+            //convert char to lowercase
+            char lw = tolower(c);
+            int pi = lw - 'a';
+            char ci = ((pi + k) % 26) + 'a';
+            //if c lower add to cptext if upper, keep it upper on cptext
+            cptext[i] = islower(c) ? ci : toupper(ci);
+        }
+        else
+        {
+            cptext[i] = c;
+        }
+    }
+    cptext[i] = '\0';
+
+    //print out the encrypttext
+    printf("ciphertext: %s\n", cptext);
+    return 0;
+}
+
+bool is_string(string s)
+{
+    for (int i = 0; i < strlen(s); i++)
+    {
+        char c = s[i];
+        if (!isdigit(c))
+        {
+            return false;
+        }
+    }
+    return true;
+}

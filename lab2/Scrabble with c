@@ -33,6 +33,8 @@ int main(void)
     }
 }
 
+//custom function taking string and return int or number
+
 int compute_score(string word)
 {
     // TODO: Compute and return score for string

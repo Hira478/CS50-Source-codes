@@ -54,6 +54,8 @@ int main(int argc, string argv[])
 
 bool is_string(string s)
 {
+    //iterate trough the char of s string
+    // and check if its digit or not
     for (int i = 0; i < strlen(s); i++)
     {
         char c = s[i];
